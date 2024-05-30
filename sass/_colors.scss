@@ -1,0 +1,118 @@
+$scheme: (
+  sm: (
+    #BBBBAA,
+    #BB5544,
+    #6699FF,
+    #AA5599,
+    #DDBB55,
+    #BBAA66,
+    #AABB22,
+    #6666BB,
+    #AAAABB,
+    #FF4422,
+    #3399FF,
+    #77CC55,
+    #FFCC33,
+    #FF5599,
+    #77DDFF,
+    #7766EE,
+    #775544,
+    #FFAAFF,
+  ),
+  swsh: (
+    #9099A1,
+    #CE406A,
+    #8FA8DD,
+    #AB6AC8,
+    #D97745,
+    #C7B78B,
+    #90C12D,
+    #5369AC,
+    #598EA1,
+    #FF9C54,
+    #4E90D6,
+    #63BB5B,
+    #F4D23C,
+    #F97177,
+    #73CEC0,
+    #0A6DC4,
+    #5A5366,
+    #ED8FE6,
+  ),
+  la: (
+    #828282,
+    #E59121,
+    #74ABD1,
+    #9454CC,
+    #A5733C,
+    #AAA581,
+    #A0A028,
+    #6E4570,
+    #6BADC9,
+    #E5613E,
+    #309AE2,
+    #439937,
+    #E0BD28,
+    #EA6C8D,
+    #47C9C9,
+    #576FBD,
+    #4F4747,
+    #E28DE2,
+  ),
+  bdsp: (
+    #999999,
+    #FFA202,
+    #95C9FF,
+    #994DCF,
+    #AB7939,
+    #BCB889,
+    #9FA424,
+    #6E4570,
+    #6AAED3,
+    #FF612C,
+    #2992FF,
+    #42BF24,
+    #FFDB00,
+    #FF637F,
+    #42D8FF,
+    #5462D6,
+    #4B4948,
+    #FFB1FF,
+  ),
+  sv: (
+    #9FA19F,
+    #FF8000,
+    #81B9EF,
+    #9141CB,
+    #915121,
+    #AFA981,
+    #91A119,
+    #704170,
+    #60A1B8,
+    #E62829,
+    #2980EF,
+    #3FA129,
+    #FAC000,
+    #EF4179,
+    #3FD8FF,
+    #5060E1,
+    #50413F,
+    #EF70EF,
+  )
+);
+
+:root {
+  @each $name, $values in $scheme {  
+    @for $i from 1 through length($values) {
+      --pt-color-#{$name}-#{$i - 1}: #{nth($values, $i)};
+    }
+  }
+}
+
+@each $name, $values in $scheme {
+  .pt-color-#{$name} {
+    @for $i from 1 through length($values) {
+      --pt-color-#{$i - 1}: var(--pt-color-#{$name}-#{$i - 1});
+    }
+  }
+}

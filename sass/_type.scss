@@ -1,0 +1,28 @@
+$type_names: (
+  'normal',
+  'fighting',
+  'flying',
+  'poison',
+  'ground',
+  'rock',
+  'bug',
+  'ghost',
+  'steel',
+  'fire',
+  'water',
+  'grass',
+  'electric',
+  'psychic',
+  'ice',
+  'dragon',
+  'dark',
+  'fairy'
+  );
+
+@for $i from 1 through length($type_names) {
+  .pt-type-#{nth($type_names, $i)} {
+    --pt-typename: var(--pt-typename-#{$i - 1});
+    --pt-iconurl: var(--pt-iconurl-#{$i - 1}, var(--pt-iconurl-default-#{$i - 1}));
+    --pt-color: var(--pt-color-#{$i - 1}, var(--pt-color-default-#{$i - 1}));
+  }
+}

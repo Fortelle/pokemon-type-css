@@ -1,0 +1,53 @@
+@use 'sass:math';
+
+.pt-icon {
+  width: 32px;
+  aspect-ratio: 1 / 1;
+  display: inline-block;
+
+  @at-root div#{&} {
+    display: block;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    mask-image: var(--pt-iconurl);
+    mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+
+    background-color: var(--pt-color);
+  }
+
+  &-squared {
+    border-radius: 10%;
+    background-color: var(--pt-color);
+
+    &::before {
+      mask-size: 90%;
+      background-color: #fff;
+    }
+  }
+
+  &-rounded {
+    border-radius: 100%;
+    background-color: var(--pt-color);
+
+    &::before {
+      mask-size: 80%;
+      background-color: #fff;
+    }
+  }
+
+  &-white {
+    &::before {
+      background-color: #fff;
+    }
+  }
+
+  @include default-colors('sv');
+  @include default-icons('gen9');
+}

@@ -1,0 +1,9 @@
+.pt-text {
+  color: var(--pt-color);
+
+  &:empty::after {
+    content: var(--pt-typename);
+  }
+  
+  @include default-colors('sv');
+}

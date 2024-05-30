@@ -1,0 +1,17 @@
+{
+  "name": "pokemon-type-css",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/style.min.css",
+  "scripts": {
+    "start": "live-server --port=8080 --entry-file=/test/",
+    "build": "sass sass/main.scss build/style.css && sass sass/main.scss build/style.min.css --no-source-map --style=compressed",
+    "build-watch": "sass sass/main.scss build/style.css --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "live-server": "^1.2.2",
+    "sass": "^1.72.0"
+  }
+}

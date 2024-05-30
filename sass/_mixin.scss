@@ -1,0 +1,13 @@
+@use "sass:map";
+
+@mixin default-colors($n) {
+  @for $i from 1 through length(map.get($scheme, $n)) {
+    --pt-color-default-#{$i - 1}: var(--pt-color-#{$n}-#{$i - 1});
+  }
+}
+
+@mixin default-icons($n) {
+  @for $i from 1 through length(map.get($svg_icons, $n)) {
+    --pt-iconurl-default-#{$i - 1}: var(--pt-iconurl-#{$n}-#{$i - 1});
+  }
+}

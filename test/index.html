@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="/build/style.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <script>
+                const typenames = [
+                    'normal',
+                    'fighting',
+                    'flying',
+                    'poison',
+                    'ground',
+                    'rock',
+                    'bug',
+                    'ghost',
+                    'steel',
+                    'fire',
+                    'water',
+                    'grass',
+                    'electric',
+                    'psychic',
+                    'ice',
+                    'dragon',
+                    'dark',
+                    'fairy'
+                ];
+                function createIcons(header, format, col) {
+                    document.write(`<h3>${header}</h3>`);
+                    document.write(`<div style="display: inline-grid;grid-template-columns: repeat(${col ?? 18}, 1fr);">`);
+                    for (let i = 0; i < 18; i++) {
+                        document.write(format.replace(/\{0\}/g, typenames[i]));
+                    }
+                    document.write(`</div>`);
+                }
+
+                document.write(`<h2>.pt-icon</h2>`);
+                createIcons('pt-icon-gen8', `<i class="pt-icon pt-icon-gen8 pt-color-swsh pt-type-{0}"></i>`);
+                createIcons('pt-icon-gen9', `<i class="pt-icon pt-icon-gen9 pt-color-sv pt-type-{0}"></i>`);
+
+                document.write(`<h2>.pt-icon</h2>`);
+                createIcons('pt-icon', `<i class="pt-icon pt-type-{0}"></i>`);
+                createIcons('pt-icon-squared', `<i class="pt-icon pt-icon-squared pt-type-{0}"></i>`);
+                createIcons('pt-icon-rounded', `<i class="pt-icon pt-icon-rounded pt-type-{0}"></i>`);
+
+                document.write(`<h2>.pt-label</h2>`);
+                createIcons('pt-label-sm', `<i class="pt-label pt-label-sm pt-type-{0} pt-lang-jpn"></i>`, 9);
+                createIcons('pt-label-swsh', `<i class="pt-label pt-label-swsh pt-type-{0} pt-lang-jpn"></i>`, 3);
+                createIcons('pt-label-la', `<i class="pt-label pt-label-la pt-type-{0} pt-lang-jpn"></i>`, 3);
+                createIcons('pt-label-bdsp', `<i class="pt-label pt-label-bdsp pt-type-{0} pt-lang-jpn"></i>`, 3);
+                createIcons('pt-label-sv', `<i class="pt-label pt-label-sv pt-type-{0} pt-lang-jpn"></i>`, 3);
+
+
+                document.write(`<h2>.pt-text</h2>`);
+                document.write(`<div class="pt-color-sv">Bulbasaur is both <span class="pt-text pt-type-grass">Grass</span> and <span class="pt-text pt-type-poison">Poison</span> type.</div>`);
+                document.write(`<div class="pt-color-sv pt-lang-eng">Charmander is <span class="pt-text pt-type-fire"></span> type.</div>`);
+                createIcons('pt-text', `<span class="pt-text pt-type-{0} pt-color-sv">{0}</span>`);
+            </script>
+        </div>
+    </body>
+
+</html>
