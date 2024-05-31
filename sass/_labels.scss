@@ -3,27 +3,31 @@
 .pt-label {
   user-select: none;
   overflow: hidden;
+  vertical-align: middle;
+
+  &-inline {
+    zoom: .66;
+  }
 
   &-sm {
     $width: 48px;
     $height: 18px;
-    $font-size: 8px;
 
+    align-items: center;
+    aspect-ratio: math.div($width, $height - 4px);
     background-color: var(--pt-color);
     border: 1px solid #000;
     border-radius: 100vmax;
-    box-shadow: inset 0 0 1px 1px #ffffffcf;
+    box-shadow: inset 0 0 .125em .0625em #ffffffcf;
     box-sizing: border-box;
     color: #fff;
-    display: inline-block;
-    font-size: var(--pt-label-fontsize);
+    display: inline-grid;
     font-style: normal;
     font-weight: bold;
-    height: $height;
-    line-height: $height - 2px;
     text-align: center;
     text-shadow: 1px 1px 1px #0000007f, -1px -1px 1px #0000007f, 1px -1px 1px #0000007f, -1px 1px 1px #0000007f;
-    width: $width;
+    text-wrap: nowrap;
+    width: 6em;
 
     &:empty::after {
       content: var(--pt-typename);
@@ -37,25 +41,26 @@
     $width: 200px;
     $height: 44px;
     $theta: 66deg;
+    $font-size: $height * .6;
     $left: $height + math.round(math.div($height, math.tan($theta)) * .5) + 5px;
 
+    align-items: center;
     aspect-ratio: math.div($width, $height);
     background-color: var(--pt-color);
     background-image: linear-gradient(180deg - $theta,
         transparent,
-        transparent 54px,
-        #0000007f 55px,
+        transparent #{math.percentage(math.div(54px, $width))},
+        #0000007f calc(#{math.percentage(math.div(54px, $width))} + 1px),
         #0000007f);
     box-sizing: border-box;
     color: #ffffffef;
-    font-size: $height * .6;
+    font-size: inherit;
     font-style: normal;
     font-weight: bold;
     display: inline-grid;
     grid-template-columns: math.percentage(math.div($left, $width)) 1fr;
-    line-height: $height;
     text-align: center;
-    width: $width;
+    width: #{math.div(1, .6) * math.div($width, $height)}em;
 
     &::before {
       content: '';
@@ -63,6 +68,8 @@
       mask-image: var(--pt-iconurl);
       mask-repeat: no-repeat;
       mask-size: contain;
+      height: 100%;
+      width: 100%;
     }
 
     &:empty::after {
@@ -79,29 +86,32 @@
     $height: 36px;
     $border-radius: 6px;
 
+    align-items: center;
     box-sizing: border-box;
-    width: $width;
+    color: #fbf5da;
     aspect-ratio: math.div($width, $height);
     display: inline-grid;
     grid-template-columns: math.percentage(math.div($height, $width)) 1fr;
     border-radius: #{math.percentage(math.div($border-radius, $width))} / #{math.percentage(math.div($border-radius, $height))};
-    font-size: $height * .6;
+    font-size: inherit;
     font-style: normal;
     font-weight: normal;
-    color: #fbf5da;
     text-align: center;
-    line-height: $height;
     background-image: linear-gradient(90deg,
         var(--pt-color),
-        var(--pt-color) $height,
-        #1212127f $height + 1px,
+        var(--pt-color) #{math.percentage(math.div($height, $width))},
+        #1212127f #{math.percentage(math.div($height, $width))},
         #1212127f);
+    width: #{math.div(1, .6) * math.div($width, $height)}em;
 
     &::before {
       content: '';
       mask-image: var(--pt-iconurl);
+      mask-repeat: no-repeat;
       mask-size: contain;
       background-color: #fbf5da;
+      height: 100%;
+      width: 100%;
     }
 
     &:empty::after {
@@ -119,26 +129,29 @@
     $padding-left: 2px;
     $border-radius: 8px;
 
+    align-items: center;
     box-sizing: border-box;
-    width: $width;
     aspect-ratio: math.div($width, $height);
     display: inline-grid;
-    grid-template-columns: math.percentage(math.div($padding-left, $width)) math.percentage(math.div($height, $width)) 1fr math.percentage(math.div($padding-left, $width));
+    grid-template-columns: #{math.percentage(math.div($padding-left, $width))} #{math.percentage(math.div($height, $width))} 1fr #{math.percentage(math.div($padding-left, $width))};
     border-radius: #{math.percentage(math.div($border-radius, $width))} / #{math.percentage(math.div($border-radius, $height))};
-    font-size: $height * .6;
+    font-size: inherit;
     background-color: var(--pt-color);
     font-style: normal;
     font-weight: normal;
     color: #fff;
     text-align: center;
-    line-height: $height;
+    width: #{math.div(1, .6) * math.div($width, $height)}em;
 
     &::before {
       content: '';
       grid-column-start: 2;
       mask-image: var(--pt-iconurl);
+      mask-repeat: no-repeat;
       mask-size: contain;
       background-color: #fff;
+      height: 100%;
+      width: 100%;
     }
 
     &:empty::after {
@@ -155,26 +168,29 @@
     $height: 40px;
     $padding-left: 12px;
 
+    align-items: center;
     box-sizing: border-box;
-    width: $width;
     aspect-ratio: math.div($width, $height);
     display: inline-grid;
-    grid-template-columns: math.percentage(math.div($padding-left, $width)) math.percentage(math.div($height, $width)) 1fr math.percentage(math.div($padding-left, $width));
+    grid-template-columns: #{math.percentage(math.div($padding-left, $width))} #{math.percentage(math.div($height, $width))} 1fr #{math.percentage(math.div($padding-left, $width))};
     border-radius: 100vmax;
-    font-size: $height * .66;
+    font-size: inherit;
     background-color: var(--pt-color);
     font-style: normal;
     font-weight: bold;
     color: #fff;
     text-align: center;
-    line-height: $height;
+    width: #{math.div(1, .66) * math.div($width, $height)}em;
 
     &::before {
       content: '';
       grid-column-start: 2;
       mask-image: var(--pt-iconurl);
+      mask-repeat: no-repeat;
       mask-size: contain;
       background-color: #fff;
+      height: 100%;
+      width: 100%;
     }
 
     &:empty::after {
@@ -196,22 +212,4 @@
 .pt-lang-ita,
 .pt-lang-spa {
   --pt-text-transform: uppercase;
-}
-
-.pt-lang-jpn {
-  --pt-label-fontsize: 9px;
-}
-
-.pt-lang-kor,
-.pt-lang-chs,
-.pt-lang-cht {
-  --pt-label-fontsize: 12px;
-}
-
-.pt-lang-eng,
-.pt-lang-fra,
-.pt-lang-ita,
-.pt-lang-spa,
-.pt-lang-ger {
-  --pt-label-fontsize: 8px;
 }

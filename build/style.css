@@ -576,7 +576,7 @@
 }
 
 .pt-icon {
-  width: 32px;
+  width: 1em;
   aspect-ratio: 1/1;
   display: inline-block;
   --pt-color-default-0: var(--pt-color-sv-0);
@@ -654,23 +654,27 @@ div.pt-icon {
 .pt-label {
   user-select: none;
   overflow: hidden;
+  vertical-align: middle;
+}
+.pt-label-inline {
+  zoom: 0.66;
 }
 .pt-label-sm {
+  align-items: center;
+  aspect-ratio: 3.4285714286;
   background-color: var(--pt-color);
   border: 1px solid #000;
   border-radius: 100vmax;
-  box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.8117647059);
+  box-shadow: inset 0 0 0.125em 0.0625em rgba(255, 255, 255, 0.8117647059);
   box-sizing: border-box;
   color: #fff;
-  display: inline-block;
-  font-size: var(--pt-label-fontsize);
+  display: inline-grid;
   font-style: normal;
   font-weight: bold;
-  height: 18px;
-  line-height: 16px;
   text-align: center;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4980392157), -1px -1px 1px rgba(0, 0, 0, 0.4980392157), 1px -1px 1px rgba(0, 0, 0, 0.4980392157), -1px 1px 1px rgba(0, 0, 0, 0.4980392157);
-  width: 48px;
+  text-wrap: nowrap;
+  width: 6em;
   --pt-color-default-0: var(--pt-color-sm-0);
   --pt-color-default-1: var(--pt-color-sm-1);
   --pt-color-default-2: var(--pt-color-sm-2);
@@ -695,19 +699,19 @@ div.pt-icon {
   text-transform: var(--pt-text-transform, unset);
 }
 .pt-label-swsh {
+  align-items: center;
   aspect-ratio: 4.5454545455;
   background-color: var(--pt-color);
-  background-image: linear-gradient(114deg, transparent, transparent 54px, rgba(0, 0, 0, 0.4980392157) 55px, rgba(0, 0, 0, 0.4980392157));
+  background-image: linear-gradient(114deg, transparent, transparent 27%, rgba(0, 0, 0, 0.4980392157) calc(27% + 1px), rgba(0, 0, 0, 0.4980392157));
   box-sizing: border-box;
   color: rgba(255, 255, 255, 0.937254902);
-  font-size: 26.4px;
+  font-size: inherit;
   font-style: normal;
   font-weight: bold;
   display: inline-grid;
   grid-template-columns: 29.5% 1fr;
-  line-height: 44px;
   text-align: center;
-  width: 200px;
+  width: 7.5757575758em;
   --pt-color-default-0: var(--pt-color-swsh-0);
   --pt-color-default-1: var(--pt-color-swsh-1);
   --pt-color-default-2: var(--pt-color-swsh-2);
@@ -751,25 +755,27 @@ div.pt-icon {
   mask-image: var(--pt-iconurl);
   mask-repeat: no-repeat;
   mask-size: contain;
+  height: 100%;
+  width: 100%;
 }
 .pt-label-swsh:empty::after {
   content: var(--pt-typename);
   text-transform: var(--pt-text-transform, unset);
 }
 .pt-label-la {
+  align-items: center;
   box-sizing: border-box;
-  width: 152px;
+  color: #fbf5da;
   aspect-ratio: 4.2222222222;
   display: inline-grid;
   grid-template-columns: 23.6842105263% 1fr;
   border-radius: 3.9473684211%/16.6666666667%;
-  font-size: 21.6px;
+  font-size: inherit;
   font-style: normal;
   font-weight: normal;
-  color: #fbf5da;
   text-align: center;
-  line-height: 36px;
-  background-image: linear-gradient(90deg, var(--pt-color), var(--pt-color) 36px, rgba(18, 18, 18, 0.4980392157) 37px, rgba(18, 18, 18, 0.4980392157));
+  background-image: linear-gradient(90deg, var(--pt-color), var(--pt-color) 23.6842105263%, rgba(18, 18, 18, 0.4980392157) 23.6842105263%, rgba(18, 18, 18, 0.4980392157));
+  width: 7.037037037em;
   --pt-color-default-0: var(--pt-color-la-0);
   --pt-color-default-1: var(--pt-color-la-1);
   --pt-color-default-2: var(--pt-color-la-2);
@@ -810,27 +816,30 @@ div.pt-icon {
 .pt-label-la::before {
   content: "";
   mask-image: var(--pt-iconurl);
+  mask-repeat: no-repeat;
   mask-size: contain;
   background-color: #fbf5da;
+  height: 100%;
+  width: 100%;
 }
 .pt-label-la:empty::after {
   content: var(--pt-typename);
   text-transform: var(--pt-text-transform, unset);
 }
 .pt-label-bdsp {
+  align-items: center;
   box-sizing: border-box;
-  width: 144px;
   aspect-ratio: 4.5;
   display: inline-grid;
   grid-template-columns: 1.3888888889% 22.2222222222% 1fr 1.3888888889%;
   border-radius: 5.5555555556%/25%;
-  font-size: 19.2px;
+  font-size: inherit;
   background-color: var(--pt-color);
   font-style: normal;
   font-weight: normal;
   color: #fff;
   text-align: center;
-  line-height: 32px;
+  width: 7.5em;
   --pt-color-default-0: var(--pt-color-bdsp-0);
   --pt-color-default-1: var(--pt-color-bdsp-1);
   --pt-color-default-2: var(--pt-color-bdsp-2);
@@ -872,27 +881,30 @@ div.pt-icon {
   content: "";
   grid-column-start: 2;
   mask-image: var(--pt-iconurl);
+  mask-repeat: no-repeat;
   mask-size: contain;
   background-color: #fff;
+  height: 100%;
+  width: 100%;
 }
 .pt-label-bdsp:empty::after {
   content: var(--pt-typename);
   text-transform: var(--pt-text-transform, unset);
 }
 .pt-label-sv {
+  align-items: center;
   box-sizing: border-box;
-  width: 200px;
   aspect-ratio: 5;
   display: inline-grid;
   grid-template-columns: 6% 20% 1fr 6%;
   border-radius: 100vmax;
-  font-size: 26.4px;
+  font-size: inherit;
   background-color: var(--pt-color);
   font-style: normal;
   font-weight: bold;
   color: #fff;
   text-align: center;
-  line-height: 40px;
+  width: 7.5757575758em;
   --pt-color-default-0: var(--pt-color-sv-0);
   --pt-color-default-1: var(--pt-color-sv-1);
   --pt-color-default-2: var(--pt-color-sv-2);
@@ -934,8 +946,11 @@ div.pt-icon {
   content: "";
   grid-column-start: 2;
   mask-image: var(--pt-iconurl);
+  mask-repeat: no-repeat;
   mask-size: contain;
   background-color: #fff;
+  height: 100%;
+  width: 100%;
 }
 .pt-label-sv:empty::after {
   content: var(--pt-typename);
@@ -950,24 +965,6 @@ div.pt-label {
 .pt-lang-ita,
 .pt-lang-spa {
   --pt-text-transform: uppercase;
-}
-
-.pt-lang-jpn {
-  --pt-label-fontsize: 9px;
-}
-
-.pt-lang-kor,
-.pt-lang-chs,
-.pt-lang-cht {
-  --pt-label-fontsize: 12px;
-}
-
-.pt-lang-eng,
-.pt-lang-fra,
-.pt-lang-ita,
-.pt-lang-spa,
-.pt-lang-ger {
-  --pt-label-fontsize: 8px;
 }
 
 .pt-text {
